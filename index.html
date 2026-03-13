@@ -1531,7 +1531,736 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 500);
 });
     </script>
+<style>
+    /* চ্যাটবট স্টাইল - আপনার ওয়েবসাইটে যোগ করুন */
+    .chatbot-container {
+        position: fixed;
+        bottom: 85px; /* WhatsApp বাটনের উপরে (WhatsApp বাটন 15px, তাই 70px + 15px = 85px) */
+        right: 20px;
+        z-index: 99999;
+        font-family: 'Hind Siliguri', sans-serif;
+    }
 
+    .chatbot-toggle {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #4F46E5, #7C3AED);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4);
+        transition: all 0.3s ease;
+        position: relative;
+        animation: bot-pulse 2s infinite;
+    }
+
+    @keyframes bot-pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+    .chatbot-toggle i {
+        color: white;
+        font-size: 28px;
+    }
+
+    .unread-badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: #EF4444;
+        color: white;
+        font-size: 12px;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        border: 2px solid white;
+    }
+
+    .chatbot-panel {
+        position: fixed;
+        bottom: 85px;
+        right: 20px;
+        width: 380px;
+        height: 600px;
+        background: white;
+        border-radius: 25px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+    }
+
+    /* মোবাইলে ফুল স্ক্রিন */
+    @media (max-width: 768px) {
+        .chatbot-container {
+            bottom: 75px; /* মোবাইলে WhatsApp বাটন 15px + 60px গ্যাপ */
+            right: 15px;
+        }
+        
+        .chatbot-panel {
+            width: 100%;
+            height: 100%;
+            bottom: 0;
+            right: 0;
+            border-radius: 0;
+            max-height: 100vh;
+        }
+        
+        .chatbot-toggle {
+            width: 55px;
+            height: 55px;
+        }
+    }
+
+    .chatbot-header {
+        background: linear-gradient(135deg, #4F46E5, #7C3AED);
+        padding: 20px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .bot-avatar {
+        width: 45px;
+        height: 45px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        backdrop-filter: blur(5px);
+        border: 2px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .bot-info h4 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .bot-info p {
+        margin: 5px 0 0;
+        font-size: 12px;
+        opacity: 0.9;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .online-dot {
+        width: 8px;
+        height: 8px;
+        background: #10B981;
+        border-radius: 50%;
+        display: inline-block;
+        animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+        0% { opacity: 1; }
+        50% { opacity: 0.5; }
+        100% { opacity: 1; }
+    }
+
+    .close-btn {
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: white;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        transition: all 0.3s;
+    }
+
+    .close-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: rotate(90deg);
+    }
+
+    .chatbot-messages {
+        flex: 1;
+        overflow-y: auto;
+        padding: 20px;
+        background: #F9FAFB;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .message {
+        display: flex;
+        gap: 10px;
+        max-width: 85%;
+    }
+
+    .message.bot {
+        align-self: flex-start;
+    }
+
+    .message.user {
+        align-self: flex-end;
+        flex-direction: row-reverse;
+    }
+
+    .message-avatar {
+        width: 35px;
+        height: 35px;
+        background: #4F46E5;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 14px;
+        flex-shrink: 0;
+    }
+
+    .message.user .message-avatar {
+        background: #10B981;
+    }
+
+    .message-content {
+        background: white;
+        padding: 12px 16px;
+        border-radius: 18px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        position: relative;
+    }
+
+    .message.bot .message-content {
+        border-top-left-radius: 5px;
+        background: white;
+    }
+
+    .message.user .message-content {
+        background: #4F46E5;
+        color: white;
+        border-top-right-radius: 5px;
+    }
+
+    .message-content p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .message-time {
+        font-size: 10px;
+        margin-top: 5px;
+        opacity: 0.6;
+        display: block;
+    }
+
+    .typing-indicator {
+        display: flex;
+        gap: 5px;
+        padding: 12px 16px;
+        background: white;
+        border-radius: 18px;
+        border-top-left-radius: 5px;
+        width: fit-content;
+    }
+
+    .typing-dot {
+        width: 8px;
+        height: 8px;
+        background: #9CA3AF;
+        border-radius: 50%;
+        animation: typing 1.4s infinite;
+    }
+
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes typing {
+        0%, 60%, 100% { transform: translateY(0); }
+        30% { transform: translateY(-10px); background: #4F46E5; }
+    }
+
+    .chatbot-input {
+        padding: 20px;
+        background: white;
+        border-top: 1px solid #E5E7EB;
+        display: flex;
+        gap: 10px;
+    }
+
+    .input-wrapper {
+        flex: 1;
+        background: #F3F4F6;
+        border-radius: 30px;
+        padding: 5px 15px;
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    .input-wrapper input {
+        width: 100%;
+        border: none;
+        background: transparent;
+        padding: 12px 0;
+        font-size: 14px;
+        outline: none;
+        font-family: 'Hind Siliguri', sans-serif;
+    }
+
+    .suggestions-dropdown {
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border-radius: 15px;
+        margin-bottom: 10px;
+        box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        display: none;
+        max-height: 200px;
+        overflow-y: auto;
+    }
+
+    .suggestion-item {
+        padding: 12px 15px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-bottom: 1px solid #F3F4F6;
+        transition: all 0.2s;
+    }
+
+    .suggestion-item:hover {
+        background: #F3F4F6;
+        padding-left: 20px;
+    }
+
+    .suggestion-item i {
+        color: #4F46E5;
+        font-size: 14px;
+        width: 20px;
+    }
+
+    .suggestion-item span {
+        font-size: 13px;
+        color: #1F2937;
+    }
+
+    .send-btn {
+        width: 50px;
+        height: 50px;
+        background: #4F46E5;
+        border: none;
+        border-radius: 50%;
+        color: white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        transition: all 0.3s;
+    }
+
+    .send-btn:hover {
+        background: #6366F1;
+        transform: scale(1.05);
+    }
+
+    .quick-replies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 10px 20px;
+        background: #F9FAFB;
+        border-top: 1px solid #E5E7EB;
+    }
+
+    .quick-reply-btn {
+        padding: 8px 15px;
+        background: white;
+        border: 1px solid #E5E7EB;
+        border-radius: 20px;
+        font-size: 12px;
+        color: #4B5563;
+        cursor: pointer;
+        transition: all 0.2s;
+        white-space: nowrap;
+    }
+
+    .quick-reply-btn:hover {
+        background: #4F46E5;
+        color: white;
+        border-color: #4F46E5;
+    }
+</style>
+
+<!-- চ্যাটবট HTML - এইটা আপনার WhatsApp বাটনের উপরে বসবে -->
+<div class="chatbot-container">
+    <!-- টগল বাটন -->
+    <div class="chatbot-toggle" onclick="toggleChatbot()">
+        <i class="fas fa-robot"></i>
+        <span class="unread-badge" id="unreadBadge">১</span>
+    </div>
+
+    <!-- চ্যাটবট প্যানেল -->
+    <div class="chatbot-panel" id="chatbotPanel">
+        <!-- হেডার -->
+        <div class="chatbot-header">
+            <div class="header-left">
+                <div class="bot-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="bot-info">
+                    <h4>সিক্রেট কোডার অ্যাসিস্ট্যান্ট</h4>
+                    <p>
+                        <span class="online-dot"></span>
+                        অনলাইন • সাধারণত ১ মিনিটে রিপ্লাই
+                    </p>
+                </div>
+            </div>
+            <button class="close-btn" onclick="toggleChatbot()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- মেসেজ এরিয়া -->
+        <div class="chatbot-messages" id="chatMessages">
+            <!-- ডায়নামিক মেসেজ এখানে আসবে -->
+        </div>
+
+        <!-- কুইক রিপ্লাই -->
+        <div class="quick-replies">
+            <button class="quick-reply-btn" onclick="sendQuickReply('কোর্সের ফি কত?')">কোর্সের ফি?</button>
+            <button class="quick-reply-btn" onclick="sendQuickReply('ক্লাস কবে শুরু?')">ক্লাস শুরু?</button>
+            <button class="quick-reply-btn" onclick="sendQuickReply('সিলেবাসটা দেখতে চাই')">সিলেবাস</button>
+            <button class="quick-reply-btn" onclick="sendQuickReply('জব সাপোর্ট কিভাবে পাব?')">জব সাপোর্ট</button>
+        </div>
+
+        <!-- ইনপুট এরিয়া -->
+        <div class="chatbot-input">
+            <div class="input-wrapper">
+                <input type="text" id="messageInput" placeholder="লিখুন... (যেমন: কোর্সের ফি কত?)" onkeyup="handleInput(event)" oninput="showSuggestions(this.value)">
+                <div class="suggestions-dropdown" id="suggestionsDropdown"></div>
+            </div>
+            <button class="send-btn" onclick="sendMessage()">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+// চ্যাটবট ফাংশনালিটি
+let isOpen = false;
+let unreadCount = 1;
+const botName = 'সিক্রেট কোডার বট';
+const userName = 'আপনি';
+
+// FAQ ডাটাবেস
+const faqDatabase = [
+    {
+        keywords: ['ফি', 'টাকা', 'মূল্য', 'দাম', 'কত', 'খরচ', 'payment', 'টাকার'],
+        answer: '🎯 **কোর্স ফি বিস্তারিত:**\n\n• **পার্সোনাল (১ জন):** ১৫,০০০ টাকা\n• **পার্টনার (২ জন):** ৭,৫০০ টাকা/জন\n• **গ্রুপ (৩ জন):** ৫,০০০ টাকা/জন\n\n✅ ইন্সটলমেন্ট সুবিধা আছে!\n\n👉 WhatsApp: 01893-255503'
+    },
+    {
+        keywords: ['শুরু', 'ক্লাস', 'তারিখ', 'কবে', 'ব্যাচ', 'কখন', 'দিন'],
+        answer: '📅 **ক্লাসের সময়সূচি:**\n\n• ব্যাচ ০৪ চলছে\n• **প্রতি শুক্রবার** রাত ৮টা - ১০টা\n• মোট ১২টি লাইভ ক্লাস\n• ভর্তি চলছে, এখনই জয়েন করুন!\n\n🔗 ফর্ম: https://forms.gle/1e1hec2U2U5HJRdK9'
+    },
+    {
+        keywords: ['সিলেবাস', 'কি শিখব', 'পড়াশোনা', 'টপিক', 'মডিউল', 'সাবজেক্ট', 'বিষয়'],
+        answer: '📚 **৩ মাসের সিলেবাস:**\n\n**মডিউল ১ - Python (২ সপ্তাহ)**\n• Python বেসিক থেকে এডভান্সড\n• OOP, File I/O\n\n**মডিউল ২ - ডেটা সায়েন্স (৩ সপ্তাহ)**\n• Pandas, NumPy, Matplotlib\n• ডেটা ক্লিনিং ও ভিজুয়ালাইজেশন\n\n**মডিউল ৩ - মেশিন লার্নিং (৪ সপ্তাহ)**\n• Regression, Classification, Clustering\n• Scikit-learn, Model Evaluation\n\n**মডিউল ৪ - ক্যারিয়ার (৩ সপ্তাহ)**\n• ৫টি রিয়েল প্রজেক্ট\n• Resume, Interview, Job Support\n\n💡 বিস্তারিত জানতে কল করুন!'
+    },
+    {
+        keywords: ['জব', 'চাকরি', 'প্লেসমেন্ট', 'ক্যারিয়ার', 'ইন্টারভিউ', 'রিমোট', 'বিদেশ'],
+        answer: '💼 **ক্যারিয়ার সাপোর্ট যা পাবেন:**\n\n✅ সিভি/রিজুমি অপটিমাইজেশন\n✅ মক ইন্টারভিউ\n✅ জব রেফারেল (আমাদের নেটওয়ার্কে)\n✅ রিমোট জব অ্যাপ্লিকেশন গাইড\n✅ থিসিস ও রিসার্চ সাপোর্ট\n\n📌 আমাদের ৭০%+ স্টুডেন্ট ৩ মাসের মধ্যে জব/ইন্টার্নশিপ পেয়েছেন!'
+    },
+    {
+        keywords: ['মেন্টর', 'শিক্ষক', 'ইন্সট্রাক্টর', 'গাইড', 'জুনায়েদ', 'junayed'],
+        answer: '👨‍🏫 **আপনার মেন্টর: জুনায়েদ বীন করিম**\n\n• ML Specialist & Instructor\n• ৫+ বছর এক্সপেরিয়েন্স\n• ২০০+ স্টুডেন্ট ট্রেইন্ড\n• ৫০+ রিয়েল প্রজেক্ট\n• B.Sc in CSE (DIU)\n• Lead Instructor at Knowledge IT Institute\n\n🎯 সরাসরি মেন্টরের সাথে কথা বলতে WhatsApp করুন: 01893-255503'
+    },
+    {
+        keywords: ['সার্টিফিকেট', 'সনদ', 'certificate', 'প্রমান', 'প্রমাণ'],
+        answer: '🎓 **অফিসিয়াল সার্টিফিকেট:**\n\n✅ ইন্ডাস্ট্রি রিকগনাইজড\n✅ লিংকডইন ভেরিফাইড\n✅ প্রজেক্ট পোর্টফোলিও ইনক্লুডেড\n✅ গ্লোবাল রিকগনিশন\n\nকোর্স সম্পন্ন করলেই পাবেন ভেরিফাইড সার্টিফিকেট!'
+    },
+    {
+        keywords: ['প্রজেক্ট', 'প্রকল্প', 'হাতে কলমে', 'প্রাকটিক্যাল', 'কাজ'],
+        answer: '🚀 **যে প্রজেক্টগুলো করবেন:**\n\n১. হাউস প্রাইস প্রেডিকশন\n২. কাস্টমার চার্ন প্রেডিকশন\n৩. স্প্যাম ইমেইল ডিটেকশন\n৪. কাস্টমার সেগমেন্টেশন\n৫. ফাইনাল ক্যাপস্টোন প্রজেক্ট (Kaggle-style)\n\n💡 প্রতিটি প্রজেক্ট পোর্টফোলিওর জন্য!'
+    },
+    {
+        keywords: ['ডিসকাউন্ট', 'ছাড়', 'অফার', 'কম', 'কিস্তি', 'instalment'],
+        answer: '💰 **পেমেন্ট অপশন:**\n\n**ওয়ান টাইম:** ১৫,০০০ টাকা\n**২ কিস্তিতে:** ৮,০০০ × ২ = ১৬,০০০ টাকা\n\n🎁 **গ্রুপ ডিসকাউন্ট:**\n• ২ জন: ৭,৫০০ টাকা/জন\n• ৩ জন: ৫,০০০ টাকা/জন\n\n🔖 **এক্সক্লুসিভ অফার:** প্রথম ৫০ জন পাবেন ২৫% ছাড়!'
+    }
+];
+
+// সাধারণ কথোপকথন
+const greetings = [
+    'হ্যালো! 👋',
+    'কেমন আছেন?',
+    'আপনার জন্য কি করতে পারি?',
+    'মেশিন লার্নিং কোর্স সম্পর্কে জানতে চান?'
+];
+
+const greetingsKeywords = ['হাই', 'হ্যালো', 'hello', 'hi', 'ওয়াই', 'আচ্ছা', 'শুনুন', 'ভাই', 'আপু'];
+
+// চ্যাটবট টগল
+function toggleChatbot() {
+    const panel = document.getElementById('chatbotPanel');
+    const badge = document.getElementById('unreadBadge');
+    
+    if (isOpen) {
+        panel.style.display = 'none';
+        badge.style.display = 'flex';
+    } else {
+        panel.style.display = 'flex';
+        badge.style.display = 'none';
+        
+        // প্রথমবার খুললে ওয়েলকাম মেসেজ দেখাও
+        if (document.getElementById('chatMessages').children.length === 0) {
+            showWelcomeMessage();
+        }
+    }
+    isOpen = !isOpen;
+}
+
+// ওয়েলকাম মেসেজ
+function showWelcomeMessage() {
+    setTimeout(() => {
+        addMessage('হ্যালো! 👋 আমি সিক্রেট কোডার বট।', 'bot');
+    }, 500);
+    
+    setTimeout(() => {
+        addMessage('আপনি কীভাবে মেশিন লার্নিং শিখতে পারেন, কোর্সের ফি, সিলেবাস বা ক্যারিয়ার সাপোর্ট সম্পর্কে জানতে চান?', 'bot');
+    }, 1500);
+    
+    setTimeout(() => {
+        addMessage('নিচের অপশন থেকে সিলেক্ট করুন অথবা লিখে জানান! 👇', 'bot');
+    }, 2500);
+}
+
+// মেসেজ অ্যাড করা
+function addMessage(text, sender) {
+    const messagesDiv = document.getElementById('chatMessages');
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${sender}`;
+    
+    const time = new Date().toLocaleTimeString('bn-BD', { hour: '2-digit', minute: '2-digit' });
+    
+    if (sender === 'bot') {
+        messageDiv.innerHTML = `
+            <div class="message-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="message-content">
+                <p>${text.replace(/\n/g, '<br>')}</p>
+                <span class="message-time">${time}</span>
+            </div>
+        `;
+    } else {
+        messageDiv.innerHTML = `
+            <div class="message-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="message-content">
+                <p>${text}</p>
+                <span class="message-time">${time}</span>
+            </div>
+        `;
+    }
+    
+    messagesDiv.appendChild(messageDiv);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
+
+// টাইপিং ইন্ডিকেটর
+function showTypingIndicator() {
+    const messagesDiv = document.getElementById('chatMessages');
+    const indicator = document.createElement('div');
+    indicator.className = 'message bot';
+    indicator.id = 'typingIndicator';
+    indicator.innerHTML = `
+        <div class="message-avatar">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="typing-indicator">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+        </div>
+    `;
+    messagesDiv.appendChild(indicator);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
+
+function removeTypingIndicator() {
+    const indicator = document.getElementById('typingIndicator');
+    if (indicator) {
+        indicator.remove();
+    }
+}
+
+// মেসেজ পাঠানো
+function sendMessage() {
+    const input = document.getElementById('messageInput');
+    const message = input.value.trim();
+    
+    if (message) {
+        addMessage(message, 'user');
+        input.value = '';
+        document.getElementById('suggestionsDropdown').style.display = 'none';
+        
+        // টাইপিং ইন্ডিকেটর দেখাও
+        showTypingIndicator();
+        
+        // বটের রেসপন্স
+        setTimeout(() => {
+            removeTypingIndicator();
+            const response = getBotResponse(message);
+            addMessage(response, 'bot');
+        }, 1500);
+    }
+}
+
+// কুইক রিপ্লাই পাঠানো
+function sendQuickReply(text) {
+    document.getElementById('messageInput').value = text;
+    sendMessage();
+}
+
+// বট রেসপন্স জেনারেট
+function getBotResponse(userInput) {
+    userInput = userInput.toLowerCase();
+    
+    // গ্রিটিংস চেক
+    if (greetingsKeywords.some(keyword => userInput.includes(keyword))) {
+        return greetings[Math.floor(Math.random() * greetings.length)];
+    }
+    
+    // FAQ থেকে খুঁজে বের করা
+    for (let faq of faqDatabase) {
+        if (faq.keywords.some(keyword => userInput.includes(keyword))) {
+            return faq.answer;
+        }
+    }
+    
+    // বিশেষ কেস
+    if (userInput.includes('ধন্যবাদ') || userInput.includes('thank')) {
+        return 'আপনাকেও ধন্যবাদ! 😊 অন্য কিছু জানতে চান?';
+    }
+    
+    if (userInput.includes('বাই') || userInput.includes('bye')) {
+        return 'আবার কথা হবে! যে কোনো প্রশ্নে কল করুন 01893-255503';
+    }
+    
+    // ডিফল্ট রেসপন্স
+    return 'দুঃখিত, বুঝতে পারিনি। দয়া করে নিচের অপশন থেকে সিলেক্ট করুন অথবা সরাসরি WhatsApp এ মেসেজ দিন: 01893-255503\n\nআপনি জানতে পারেন:\n• কোর্সের ফি\n• সিলেবাস\n• জব সাপোর্ট\n• মেন্টর সম্পর্কে\n• প্রজেক্ট';
+}
+
+// ইনপুট হ্যান্ডেল (এন্টার চাপলে)
+function handleInput(event) {
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
+}
+
+// অটো সাজেশন
+const suggestions = [
+    { icon: '💰', text: 'কোর্সের ফি কত?' },
+    { icon: '📅', text: 'ক্লাস কবে শুরু?' },
+    { icon: '📚', text: 'সিলেবাসটা দেখতে চাই' },
+    { icon: '💼', text: 'জব সাপোর্ট কিভাবে পাব?' },
+    { icon: '👨‍🏫', text: 'মেন্টর কে?' },
+    { icon: '🎓', text: 'সার্টিফিকেট কি পাব?' },
+    { icon: '🚀', text: 'কি কি প্রজেক্ট করব?' },
+    { icon: '💰', text: 'ডিসকাউন্ট আছে?' },
+    { icon: '📞', text: 'কিভাবে যোগাযোগ করব?' }
+];
+
+function showSuggestions(value) {
+    const dropdown = document.getElementById('suggestionsDropdown');
+    
+    if (value.length > 0) {
+        const filtered = suggestions.filter(s => 
+            s.text.toLowerCase().includes(value.toLowerCase())
+        );
+        
+        if (filtered.length > 0) {
+            dropdown.innerHTML = filtered.map(s => 
+                `<div class="suggestion-item" onclick="selectSuggestion('${s.text}')">
+                    <i class="fas ${getIconClass(s.icon)}"></i>
+                    <span>${s.text}</span>
+                </div>`
+            ).join('');
+            dropdown.style.display = 'block';
+        } else {
+            dropdown.style.display = 'none';
+        }
+    } else {
+        dropdown.style.display = 'none';
+    }
+}
+
+function getIconClass(icon) {
+    const icons = {
+        '💰': 'fa-money-bill-wave',
+        '📅': 'fa-calendar',
+        '📚': 'fa-book',
+        '💼': 'fa-briefcase',
+        '👨‍🏫': 'fa-chalkboard-teacher',
+        '🎓': 'fa-graduation-cap',
+        '🚀': 'fa-rocket',
+        '📞': 'fa-phone'
+    };
+    return icons[icon] || 'fa-question-circle';
+}
+
+function selectSuggestion(text) {
+    document.getElementById('messageInput').value = text;
+    document.getElementById('suggestionsDropdown').style.display = 'none';
+    sendMessage();
+}
+
+// প্রথমবার লোডে আনরিড ব্যাজ দেখাও
+document.addEventListener('DOMContentLoaded', function() {
+    // ফন্ট অ্যাওসাম চেক করা
+    if (typeof fontawesome === 'undefined') {
+        console.log('ফন্ট অ্যাওসাম লোড হচ্ছে...');
+    }
+});
+
+// ক্লিক করে বন্ধ করার জন্য (ডকুমেন্টে ক্লিক)
+document.addEventListener('click', function(event) {
+    const panel = document.getElementById('chatbotPanel');
+    const toggle = document.querySelector('.chatbot-toggle');
+    
+    if (isOpen && !panel.contains(event.target) && !toggle.contains(event.target)) {
+        toggleChatbot();
+    }
+});
+</script>
 	
 </body>
 </html>
