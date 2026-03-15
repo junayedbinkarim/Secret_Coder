@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Junayed Bin Karim | মেশিন লার্নিং কোর্স ও সিএসই টিউটোরিয়াল | সিক্রেট কোডার</title>
+	<title>সিক্রেট কোডার | মেশিন লার্নিং কোর্স ও সিএসই টিউটোরিয়াল | </title>
 
 <meta name="description" content="Junayed Bin Karim-এর সাথে ৩ মাসে মেশিন লার্নিং শিখুন বাংলায়। জিরো থেকে ML ইঞ্জিনিয়ার হওয়ার সম্পূর্ণ গাইড, লাইভ ক্লাস এবং রিয়েল প্রজেক্ট। বিস্তারিত দেখুন সিক্রেট কোডার বুটক্যাম্পে।">
 
@@ -105,562 +105,6 @@ html, body {
 
 
 
-
-
-/* Form Container Styles - Mobile First Approach */
-.form-container {
-    max-width: 600px;
-    width: 90%;
-    margin: 20px auto;
-    padding: 20px 15px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-    color: #ffffff;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Hook Point Styles */
-.hook-point {
-    text-align: center;
-    margin-bottom: 30px;
-    padding: 20px 15px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    animation: fadeInUp 0.8s ease;
-}
-
-.hook-point h1 {
-    font-size: clamp(24px, 6vw, 36px);
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.hook-point h1 i {
-    font-size: clamp(20px, 5vw, 30px);
-    color: #ffd700;
-}
-
-.offer-badge {
-    background: #ff4757;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 50px;
-    display: inline-block;
-    margin-bottom: 20px;
-    font-weight: bold;
-    font-size: clamp(14px, 4vw, 16px);
-    animation: pulse 2s infinite;
-}
-
-.hook-point p {
-    font-size: clamp(14px, 4vw, 16px);
-    line-height: 1.8;
-    margin-bottom: 15px;
-}
-
-.hook-point p i {
-    color: #4cd137;
-    margin-right: 8px;
-}
-
-.countdown-tag {
-    background: rgba(255, 215, 0, 0.2);
-    padding: 10px 15px;
-    border-radius: 10px;
-    font-size: clamp(13px, 3.5vw, 15px);
-    border: 1px solid #ffd700;
-}
-
-/* Form Title */
-.form-container h2 {
-    font-size: clamp(20px, 5vw, 28px);
-    text-align: center;
-    margin-bottom: 10px;
-    color: #fff;
-}
-
-.form-container > p {
-    text-align: center;
-    font-size: clamp(13px, 3.5vw, 15px);
-    margin-bottom: 25px;
-    opacity: 0.9;
-}
-
-/* Form Elements */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-label {
-    font-size: clamp(14px, 3.5vw, 16px);
-    font-weight: 500;
-    margin-bottom: 5px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-label i {
-    color: #ffd700;
-    font-size: clamp(16px, 4vw, 18px);
-}
-
-input, select {
-    width: 100%;
-    padding: 12px 15px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.95);
-    font-size: clamp(14px, 3.5vw, 16px);
-    transition: all 0.3s ease;
-    box-sizing: border-box;
-}
-
-input:focus, select:focus {
-    outline: none;
-    border-color: #ffd700;
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-    transform: translateY(-2px);
-}
-
-input::placeholder {
-    color: #999;
-    font-size: clamp(12px, 3vw, 14px);
-}
-
-/* Benefits Section */
-.benefits-list {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 20px 15px;
-    margin: 10px 0;
-    backdrop-filter: blur(5px);
-}
-
-.benefits-list h4 {
-    font-size: clamp(16px, 4vw, 18px);
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #ffd700;
-}
-
-.benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 10px;
-}
-
-.benefit-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: clamp(12px, 3vw, 14px);
-    padding: 8px 12px;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-}
-
-.benefit-item i {
-    color: #4cd137;
-    font-size: clamp(14px, 3.5vw, 16px);
-}
-
-/* Submit Button */
-button[type="submit"] {
-    background: #ffd700;
-    color: #333;
-    padding: 15px 25px;
-    border: none;
-    border-radius: 50px;
-    font-size: clamp(16px, 4vw, 18px);
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    transition: all 0.3s ease;
-    margin-top: 10px;
-    width: 100%;
-}
-
-button[type="submit"]:hover:not(:disabled) {
-    background: #ffed4a;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
-}
-
-button[type="submit"]:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-}
-
-button[type="submit"] i {
-    transition: transform 0.3s ease;
-}
-
-button[type="submit"]:hover:not(:disabled) i {
-    transform: translateX(5px);
-}
-
-/* Trust Badges */
-.trust-badges {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 25px;
-    padding: 15px 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.trust-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: clamp(12px, 3vw, 14px);
-    padding: 8px 15px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 30px;
-}
-
-.trust-item i {
-    color: #ffd700;
-}
-
-/* Loading Spinner */
-.loading-spinner {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    border-top-color: #fff;
-    animation: spin 1s ease-in-out infinite;
-    margin-right: 10px;
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-/* Small Mobile Devices (320px - 480px) */
-@media screen and (max-width: 480px) {
-    .form-container {
-        width: 95%;
-        padding: 15px 10px;
-        margin: 10px auto;
-    }
-
-    .hook-point {
-        padding: 15px 10px;
-    }
-
-    .benefits-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .benefit-item {
-        width: 100%;
-    }
-
-    .trust-badges {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .trust-item {
-        width: fit-content;
-    }
-
-    input, select {
-        padding: 10px 12px;
-    }
-
-    button[type="submit"] {
-        padding: 12px 20px;
-    }
-}
-
-/* Tablet Devices (481px - 768px) */
-@media screen and (min-width: 481px) and (max-width: 768px) {
-    .form-container {
-        width: 85%;
-        padding: 25px 20px;
-    }
-
-    .benefits-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .trust-badges {
-        gap: 20px;
-    }
-}
-
-/* Laptop and Desktop (769px and above) */
-@media screen and (min-width: 769px) {
-    .form-container {
-        width: 80%;
-        padding: 40px 35px;
-        margin: 30px auto;
-    }
-
-    .hook-point {
-        padding: 25px;
-    }
-
-    .benefits-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .trust-badges {
-        justify-content: space-around;
-    }
-
-    input:hover, select:hover {
-        background: #ffffff;
-    }
-}
-
-/* Large Desktop (1200px and above) */
-@media screen and (min-width: 1200px) {
-    .form-container {
-        max-width: 700px;
-    }
-}
-
-/* Landscape Mode */
-@media screen and (max-height: 500px) and (orientation: landscape) {
-    .form-container {
-        margin: 10px auto;
-        padding: 15px;
-    }
-
-    .hook-point {
-        margin-bottom: 15px;
-        padding: 10px;
-    }
-
-    .benefits-list {
-        padding: 10px;
-    }
-}
-
-/* High Resolution Devices */
-@media screen and (min-width: 1440px) {
-    .form-container {
-        max-width: 800px;
-        padding: 50px 40px;
-    }
-
-    .hook-point h1 {
-        font-size: 42px;
-    }
-
-    .benefit-item {
-        font-size: 16px;
-    }
-}
-
-/* Print Styles */
-@media print {
-    .form-container {
-        background: white;
-        color: black;
-        box-shadow: none;
-    }
-
-    .offer-badge, .countdown-tag, button {
-        display: none;
-    }
-}
-
-/* Touch Device Optimizations */
-@media (hover: none) and (pointer: coarse) {
-    input, select, button {
-        min-height: 44px;
-    }
-
-    .benefit-item, .trust-item {
-        padding: 12px 15px;
-    }
-
-    button[type="submit"] {
-        min-height: 50px;
-    }
-}
-
-
-
-/* ফর্মের সিলেক্ট এলিমেন্টের টেক্সট কালার ফিক্স */
-.form-container select,
-.form-container select option {
-    color: #333333 !important; /* গা dark ় রঙ */
-    background-color: #ffffff;
-}
-
-/* সিলেক্ট বক্সের তীর কাস্টমাইজ করা (অপশনাল) */
-.form-container select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
-    background-size: 1rem;
-    padding-right: 2.5rem;
-}
-
-/* ভ্যালিডেশন/অ্যাক্টিভ স্টেট */
-.form-container select:focus {
-    border-color: #ffd700;
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
-}
-
-/* ড্রপডাউন অপশন হোভার স্টাইল */
-.form-container select option:hover,
-.form-container select option:focus,
-.form-container select option:active,
-.form-container select option:checked {
-    background: linear-gradient(0deg, #ffd700 0%, #ffd700 100%);
-    color: #000 !important;
-}
-
-/* ফায়ারফক্সের জন্য স্পেসিফিক ফিক্স */
-@-moz-document url-prefix() {
-    .form-container select option {
-        background-color: #ffffff;
-        color: #333 !important;
-    }
-    
-    .form-container select option:checked {
-        background-color: #ffd700;
-        color: #000 !important;
-    }
-}
-
-/* আইফোন/সাফারির জন্য ফিক্স */
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-    .form-container select {
-        color: #333 !important;
-    }
-    
-    .form-container select:focus {
-        color: #333 !important;
-    }
-}/* স্ট্রং ফিক্স - সব ইনপুটের জন্য */
-.form-container input,
-.form-container input[type="text"],
-.form-container input[type="email"],
-.form-container input[type="tel"],
-.form-container input:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]) {
-    color: #333333 !important;
-    background-color: white !important;
-    -webkit-text-fill-color: #333333 !important;
-}
-
-.form-container input::-webkit-input-placeholder {
-    color: #999 !important;
-    -webkit-text-fill-color: #999 !important;
-}
-
-.form-container input::-moz-placeholder {
-    color: #999 !important;
-    opacity: 1;
-}
-
-.form-container input:-ms-input-placeholder {
-    color: #999 !important;
-}
-
-.form-container input::-ms-input-placeholder {
-    color: #999 !important;
-}
-
-/* জোর করে ওভাররাইড করার জন্য */
-.form-container input {
-    color: #000 !important;
-    background: white !important;
-}
-
-.form-container input:focus {
-    color: #000 !important;
-    background: white !important;
-}
-/* টেক্সটএরিয়া ফিল্ডের জন্য ব্ল্যাক টেক্সট ফিক্স */
-.form-container textarea {
-    color: #1a202c !important;  /* ডার্ক কালার */
-    background-color: #ffffff;
-    caret-color: #4F46E5;  /* কার্সারের রঙ */
-    font-family: inherit;
-    resize: vertical;
-    min-height: 100px;
-    padding: 12px 15px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    width: 100%;
-    box-sizing: border-box;
-    font-size: 16px;
-}
-
-/* প্লেসহোল্ডার টেক্সটের রঙ (হালকা ধূসর) */
-.form-container textarea::placeholder {
-    color: #a0aec0 !important;
-    opacity: 1;
-}
-
-/* ফোকাস স্টেট */
-.form-container textarea:focus {
-    color: #1a202c !important;
-    background-color: #ffffff;
-    border-color: #ffd700;
-    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
-    outline: none;
-}
-
-/* ডিজেবল স্টেট (যদি প্রয়োজন হয়) */
-.form-container textarea:disabled {
-    background-color: #f3f4f6;
-    color: #4b5563 !important;
-}
 
 	</style>
 	<!-- Bangla font -->
@@ -1914,186 +1358,339 @@ button[type="submit"]:hover:not(:disabled) i {
 
 
 
-
-
-    <div class="form-container">
-        <!-- Hook Point - Attention Grabber for Roadmap -->
-        <div class="hook-point">
-            <h1>
-                <i class="fas fa-map-signals"></i>
-                ফ্রি ML রোডম্যাপ 2026
-                <i class="fas fa-rocket"></i>
-            </h1>
-            <div class="offer-badge">
-                <i class="fas fa-gift"></i> 
-                সীমিত সময়ের অফার!
-            </div>
-            <p>
-                <i class="fas fa-check-circle"></i> 
-                ৩ মাসে ML ইঞ্জিনিয়ার হওয়ার সম্পূর্ণ গাইডলাইন
-                <br>
-                <i class="fas fa-check-circle"></i> 
-                প্র্যাকটিক্যাল রিসোর্স + প্রজেক্ট আইডিয়া
+<!-- ===== লিড জেনারেশন ফর্ম সেকশন ===== -->
+<section class="py-20 bg-cream" style="background-color: #FFFBF0;">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        
+        <!-- সেকশন হেডার -->
+        <div data-aos="fade-up" class="text-center mb-12">
+            <span class="inline-block px-4 py-1.5 mb-4 text-xs font-bold tracking-widest text-indigo-600 uppercase bg-indigo-50 rounded-full">
+                Limited Time Offer
+            </span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                ফ্রি ML রোডম্যাপ ২০২৬
+            </h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                ৩ মাসে মেশিন লার্নিং ইঞ্জিনিয়ার হওয়ার সম্পূর্ণ গাইডলাইন
             </p>
-            <div class="countdown-tag">
-                <i class="fas fa-hourglass-half"></i> 
-                আজই সংগ্রহ করুন আপনার রোডম্যাপ
-            </div>
         </div>
 
-        <h2>ML Bootcamp 2026</h2>
-        <p>নিচের ফর্মটি পূরণ করুন এবং সাথে সাথে পেয়ে যান আপনার রোডম্যাপ</p>
-        <form action="https://formspree.io/f/mpqyjyye" method="POST">
-    <label>
-        <i class="fas fa-user"></i> আপনার নাম:
-    </label>
-    <input type="text" name="name" placeholder="যেমন: Junayed Bin Karim" required>
-
-    <label>
-        <i class="fas fa-envelope"></i> ইমেইল এড্রেস:
-    </label>
-    <input type="email" name="_replyto" placeholder="example@mail.com" required>
-
-    <label>
-        <i class="fas fa-bullseye"></i> আপনি আমাদের থেকে কী শিখতে চান? (Behavioral Context)
-    </label>
-    <select name="interest_topic">
-        <option value="data_science">মেশিন লার্নিং (Machine Learning)</option>
-        <option value="web_dev">ওয়েব ডেভেলপমেন্ট (Web Development)</option>
-        <option value="automation">ডাটা সায়েন্স (Data Science)</option>
-    </select>
-
-    <label>
-        <i class="fas fa-question-circle"></i> আপনার প্রধান সমস্যা বা চ্যালেঞ্জ কী?
-    </label>
-    <textarea name="buyer_challenge" placeholder="যেমন: গাইডলাইনের অভাব বা প্র্যাকটিস সোর্স পাচ্ছি না..."></textarea>
-
-    <label>
-        <i class="fas fa-search"></i> আপনি আমাদের কথা প্রথম কোথায় শুনেছেন? (Lead Source)
-    </label>
-    <select name="lead_source">
-        <option value="facebook">ফেসবুক (Facebook)</option>
-        <option value="linkedin">লিঙ্কডইন (LinkedIn)</option>
-        <option value="google">গুগল সার্চ (Google Search)</option>
-        <option value="friend">বন্ধুর মাধ্যমে (Referral)</option>
-    </select>
-
-    <label>
-        <i class="fas fa-briefcase"></i> বর্তমান অবস্থা:
-    </label>
-    <select name="status">
-        <option value="student">স্টুডেন্ট (Student)</option>
-        <option value="job_seeker">চাকরি খুঁজছি (Job Seeker)</option>
-        <option value="professional">প্রফেশনাল (Professional)</option>
-    </select>
-
-    <label>
-        <i class="fas fa-code"></i> পাইথন সম্পর্কে ধারণা:
-    </label>
-    <select name="python_skill">
-        <option value="beginner">একদম নতুন (Beginner)</option>
-        <option value="intermediate">মোটামুটি জানি (Intermediate)</option>
-        <option value="advanced">ভালো জানি (Advanced)</option>
-    </select>
-
-    <label>
-        <i class="fas fa-phone"></i> মোবাইল নম্বর:
-    </label>
-    <input type="tel" name="phone_number" placeholder="01XXXXXXXXX" pattern="[0-9]{11}" title="দয়া করে ১১ ডিজিটের মোবাইল নম্বর দিন" required>
-<!-- Benefits Section -->
-            <div class="benefits-list">
-                <h4>
-                    <i class="fas fa-star"></i>
-                    ফর্ম ফিলাপের পর যা পাবেন:
-                </h4>
-                <div class="benefits-grid">
-                    <div class="benefit-item">
-                        <i class="fas fa-check"></i>
-                        সম্পূর্ণ ML রোডম্যাপ PDF
+        <!-- মেইন গ্রিড - বুটস্ট্র্যাপের মতো কল সিস্টেম -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+            
+            <!-- বাম কল: অফার ও বেনিফিট (কলাম ১) -->
+            <div data-aos="fade-right" class="space-y-6">
+                <!-- হুক পয়েন্ট কার্ড -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-indigo-100">
+                    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 p-6">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-2xl font-bold text-white flex items-center">
+                                <i class="fas fa-map-signals mr-3"></i>
+                                ML Roadmap 2026
+                            </h3>
+                            <span class="bg-yellow-400 text-gray-900 text-xs font-bold px-3 py-1.5 rounded-full">
+                                <i class="fas fa-gift mr-1"></i> ফ্রি
+                            </span>
+                        </div>
                     </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check"></i>
-                        বোনাস: চিটশিট
+                    
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="relative flex h-3 w-3">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                            </span>
+                            <p class="text-green-600 font-medium">সীমিত সময়ের অফার! আজই সংগ্রহ করুন</p>
+                        </div>
+                        
+                        <ul class="space-y-4 mb-6">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mt-0.5">
+                                    <i class="fas fa-check-circle text-green-600 text-sm"></i>
+                                </div>
+                                <span class="ml-3 text-gray-700">৩ মাসে ML ইঞ্জিনিয়ার হওয়ার সম্পূর্ণ গাইডলাইন</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mt-0.5">
+                                    <i class="fas fa-check-circle text-green-600 text-sm"></i>
+                                </div>
+                                <span class="ml-3 text-gray-700">প্র্যাকটিক্যাল রিসোর্স + প্রজেক্ট আইডিয়া</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mt-0.5">
+                                    <i class="fas fa-star text-purple-600 text-sm"></i>
+                                </div>
+                                <span class="ml-3 text-gray-700">বোনাস: Python চিটশিট + Interview Questions</span>
+                            </li>
+                        </ul>
+
+                        <!-- কাউন্টডাউন ট্যাগ -->
+                        <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-4 flex items-center">
+                            <i class="fas fa-hourglass-half text-yellow-600 text-xl mr-3"></i>
+                            <div>
+                                <p class="text-yellow-800 font-semibold">আজই সংগ্রহ করুন আপনার রোডম্যাপ</p>
+                                <p class="text-sm text-yellow-700">৫০০+ ইতিমধ্যে নিয়েছেন</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check"></i>
-                        প্র্যাকটিস প্রজেক্ট আইডিয়া
+                </div>
+
+                <!-- বেনিফিট গ্রিড (২ কলাম) -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 text-center">
+                        <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <i class="fas fa-file-pdf text-indigo-600"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 text-sm">সম্পূর্ণ ML রোডম্যাপ</h4>
+                        <p class="text-xs text-gray-500">PDF ফরম্যাটে</p>
                     </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check"></i>
-                        ফ্রি ওয়েবিনার অ্যাক্সেস
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 text-center">
+                        <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <i class="fas fa-file-code text-green-600"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 text-sm">বোনাস: চিটশিট</h4>
+                        <p class="text-xs text-gray-500">Python & ML</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 text-center">
+                        <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <i class="fas fa-lightbulb text-purple-600"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 text-sm">প্রজেক্ট আইডিয়া</h4>
+                        <p class="text-xs text-gray-500">৫+ রিয়েল প্রজেক্ট</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 text-center">
+                        <div class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <i class="fas fa-video text-pink-600"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 text-sm">ফ্রি ওয়েবিনার</h4>
+                        <p class="text-xs text-gray-500">এক্সক্লুসিভ অ্যাক্সেস</p>
+                    </div>
+                </div>
+
+                <!-- ট্রাস্ট ব্যাজ -->
+                <div class="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex items-center justify-around">
+                    <div class="flex items-center text-gray-600">
+                        <i class="fas fa-lock text-green-600 mr-2"></i>
+                        <span class="text-sm">তথ্য নিরাপদ</span>
+                    </div>
+                    <div class="h-6 w-px bg-gray-300"></div>
+                    <div class="flex items-center text-gray-600">
+                        <i class="fas fa-clock text-indigo-600 mr-2"></i>
+                        <span class="text-sm">তাৎক্ষণিক ডাউনলোড</span>
+                    </div>
+                    <div class="h-6 w-px bg-gray-300"></div>
+                    <div class="flex items-center text-gray-600">
+                        <i class="fas fa-users text-purple-600 mr-2"></i>
+                        <span class="text-sm">৫০০+</span>
                     </div>
                 </div>
             </div>
-    <button type="submit">Get Roadmap & Free Demo Class</button>
-            <!-- Hidden Fields -->
-            <input type="hidden" name="Visitor_City" id="city">
-            <input type="hidden" name="Visitor_Country" id="country">
-            <input type="hidden" name="Visitor_IP" id="ip_address">
-            <input type="hidden" name="Roadmap_Requested" value="Yes">
-            <input type="hidden" name="Request_Date" id="request_date">
 
-            
+            <!-- ডান কল: ফর্ম (কলাম ২) -->
+            <div data-aos="fade-left" class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
+                <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-6 border-b border-gray-200">
+                    <h3 class="text-xl font-bold text-gray-800 flex items-center">
+                        <i class="fas fa-pencil-alt text-indigo-600 mr-3"></i>
+                        ML Bootcamp 2026 - রেজিস্ট্রেশন ফর্ম
+                    </h3>
+                    <p class="text-gray-600 text-sm mt-1">নিচের ফর্মটি পূরণ করুন এবং সাথে সাথে পেয়ে যান আপনার রোডম্যাপ</p>
+                </div>
 
-            
-        </form>
+                <form action="https://formspree.io/f/mpqyjyye" method="POST" class="p-6 space-y-5">
+                    <!-- ২ কলাম গ্রিড ফর্মের জন্য -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">
+                                <i class="fas fa-user text-indigo-600 mr-2"></i>আপনার নাম
+                            </label>
+                            <input type="text" name="name" placeholder="যেমন: Junayed Bin Karim" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">
+                                <i class="fas fa-envelope text-indigo-600 mr-2"></i>ইমেইল এড্রেস
+                            </label>
+                            <input type="email" name="_replyto" placeholder="example@mail.com" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
+                        </div>
+                    </div>
 
-        <!-- Trust Badges -->
-        <div class="trust-badges">
-            <div class="trust-item">
-                <i class="fas fa-lock"></i>
-                তথ্য নিরাপদ
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            <i class="fas fa-bullseye text-indigo-600 mr-2"></i>আপনি আমাদের থেকে কী শিখতে চান?
+                        </label>
+                        <select name="interest_topic" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                            <option value="data_science">মেশিন লার্নিং (Machine Learning)</option>
+                            <option value="web_dev">ওয়েব ডেভেলপমেন্ট (Web Development)</option>
+                            <option value="automation">ডাটা সায়েন্স (Data Science)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            <i class="fas fa-question-circle text-indigo-600 mr-2"></i>আপনার প্রধান সমস্যা বা চ্যালেঞ্জ কী?
+                        </label>
+                        <textarea name="buyer_challenge" rows="3" placeholder="যেমন: গাইডলাইনের অভাব বা প্র্যাকটিস সোর্স পাচ্ছি না..." 
+                                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                    </div>
+
+                    <!-- ২ কলাম গ্রিড -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">
+                                <i class="fas fa-search text-indigo-600 mr-2"></i>কোথায় শুনেছেন?
+                            </label>
+                            <select name="lead_source" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                                <option value="facebook">ফেসবুক (Facebook)</option>
+                                <option value="linkedin">লিঙ্কডইন (LinkedIn)</option>
+                                <option value="google">গুগল সার্চ (Google Search)</option>
+                                <option value="friend">বন্ধুর মাধ্যমে (Referral)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">
+                                <i class="fas fa-briefcase text-indigo-600 mr-2"></i>বর্তমান অবস্থা
+                            </label>
+                            <select name="status" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                                <option value="student">স্টুডেন্ট (Student)</option>
+                                <option value="job_seeker">চাকরি খুঁজছি (Job Seeker)</option>
+                                <option value="professional">প্রফেশনাল (Professional)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            <i class="fas fa-code text-indigo-600 mr-2"></i>পাইথন সম্পর্কে ধারণা
+                        </label>
+                        <select name="python_skill" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                            <option value="beginner">একদম নতুন (Beginner)</option>
+                            <option value="intermediate">মোটামুটি জানি (Intermediate)</option>
+                            <option value="advanced">ভালো জানি (Advanced)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            <i class="fas fa-phone text-indigo-600 mr-2"></i>মোবাইল নম্বর
+                        </label>
+                        <input type="tel" name="phone_number" placeholder="01XXXXXXXXX" pattern="[0-9]{11}" title="দয়া করে ১১ ডিজিটের মোবাইল নম্বর দিন" required 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+
+                    <!-- হিডেন ফিল্ডস -->
+                    <input type="hidden" name="Visitor_City" id="city">
+                    <input type="hidden" name="Visitor_Country" id="country">
+                    <input type="hidden" name="Visitor_IP" id="ip_address">
+                    <input type="hidden" name="Roadmap_Requested" value="Yes">
+                    <input type="hidden" name="Request_Date" id="request_date">
+
+                    <!-- সাবমিট বাটন -->
+                    <button type="submit" id="submitBtn" disabled 
+                            class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold py-4 px-6 rounded-xl hover:shadow-lg transform transition hover:scale-[1.02] duration-300 flex items-center justify-center">
+                        <span class="flex items-center">
+                            <i class="fas fa-download mr-3"></i>
+                            Get Roadmap & Free Demo Class
+                            <i class="fas fa-arrow-right ml-3"></i>
+                        </span>
+                    </button>
+
+                    <!-- ফর্মের নিচে ট্রাস্ট ব্যাজ (মোবাইলের জন্য) -->
+                    <div class="flex items-center justify-center space-x-4 text-sm text-gray-500 pt-2 lg:hidden">
+                        <span><i class="fas fa-lock text-green-600 mr-1"></i> নিরাপদ</span>
+                        <span><i class="fas fa-bolt text-indigo-600 mr-1"></i> তাৎক্ষণিক</span>
+                        <span><i class="fas fa-users text-purple-600 mr-1"></i> ৫০০+</span>
+                    </div>
+                </form>
             </div>
-            <div class="trust-item">
-                <i class="fas fa-clock"></i>
-                তাৎক্ষণিক ডাউনলোড
-            </div>
-            <div class="trust-item">
-                <i class="fas fa-users"></i>
-                ৫০০+ ইতিমধ্যে নিয়েছেন
+        </div>
+
+        <!-- নিচের প্রমোশনাল বার -->
+        <div data-aos="fade-up" class="mt-10 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-6 text-white">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-rocket text-2xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg">বিশেষ অফার!</h4>
+                        <p class="text-indigo-100">আজই ফর্ম ফিলাপ করুন এবং ফ্রি ওয়েবিনারে জয়েন করুন</p>
+                    </div>
+                </div>
+                <a href="https://wa.me/8801893255503" class="bg-white text-indigo-600 font-bold py-3 px-8 rounded-xl hover:shadow-xl transition transform hover:scale-105 flex items-center">
+                    <i class="fab fa-whatsapp text-xl mr-2"></i>
+                    WhatsApp এ কথা বলুন
+                </a>
             </div>
         </div>
     </div>
+</section>
 
-    <script>
-        // Set request date
-        document.getElementById('request_date').value = new Date().toISOString();
+<script>
+    // Set request date
+    document.getElementById('request_date').value = new Date().toISOString();
 
-        const submitBtn = document.getElementById('submitBtn');
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span class="loading-spinner"></span>লোকেশন লোড হচ্ছে...';
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span class="flex items-center"><span class="loading-spinner mr-3"></span>লোকেশন লোড হচ্ছে...</span>';
 
-        // IP and Location Detection
-        fetch('https://ipapi.co/json/')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('city').value = data.city || "Not Found";
-                document.getElementById('country').value = data.country_name || "Not Found";
-                document.getElementById('ip_address').value = data.ip || "Not Found";
-                
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<span>Get Roadmap & Free Demo Class</span><i class="fas fa-arrow-right"></i>';
-            })
-            .catch(error => {
-                console.log('Location detection failed:', error);
-                document.getElementById('city').value = "Error/Blocked";
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<span>Get Roadmap & Free Demo Class</span><i class="fas fa-arrow-right"></i>';
-            });
-
-        // Form submission handling with success message
-        document.querySelector('form').addEventListener('submit', function(e) {
-            if (!submitBtn.disabled) {
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = '<span class="loading-spinner"></span>পাঠানো হচ্ছে...';
-                
-                // You can add additional tracking here
-                console.log('Form submitted with roadmap request');
-            }
+    // IP and Location Detection
+    fetch('https://ipapi.co/json/')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('city').value = data.city || "Not Found";
+            document.getElementById('country').value = data.country_name || "Not Found";
+            document.getElementById('ip_address').value = data.ip || "Not Found";
+            
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<span class="flex items-center"><i class="fas fa-download mr-3"></i>Get Roadmap & Free Demo Class<i class="fas fa-arrow-right ml-3"></i></span>';
+        })
+        .catch(error => {
+            console.log('Location detection failed:', error);
+            document.getElementById('city').value = "Error/Blocked";
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<span class="flex items-center"><i class="fas fa-download mr-3"></i>Get Roadmap & Free Demo Class<i class="fas fa-arrow-right ml-3"></i></span>';
         });
-    </script>
 
+    // Form submission handling with success message
+    document.querySelector('form').addEventListener('submit', function(e) {
+        if (!submitBtn.disabled) {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="flex items-center"><span class="loading-spinner mr-3"></span>পাঠানো হচ্ছে...</span>';
+            
+            // You can add additional tracking here
+            console.log('Form submitted with roadmap request');
+        }
+    });
+</script>
 
+<style>
+    /* Loading spinner */
+    .loading-spinner {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(255,255,255,.3);
+        border-radius: 50%;
+        border-top-color: #fff;
+        animation: spin 1s ease-in-out infinite;
+    }
+    
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+    
+    /* Custom styles */
+    .bg-cream {
+        background-color: #FFFBF0;
+    }
+    
+    /* Form focus effects */
+    input:focus, select:focus, textarea:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    }
+</style>
 
 
 
