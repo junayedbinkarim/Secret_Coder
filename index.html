@@ -586,8 +586,81 @@ button[type="submit"]:hover:not(:disabled) i {
     .form-container select:focus {
         color: #333 !important;
     }
+}/* স্ট্রং ফিক্স - সব ইনপুটের জন্য */
+.form-container input,
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="tel"],
+.form-container input:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]) {
+    color: #333333 !important;
+    background-color: white !important;
+    -webkit-text-fill-color: #333333 !important;
 }
 
+.form-container input::-webkit-input-placeholder {
+    color: #999 !important;
+    -webkit-text-fill-color: #999 !important;
+}
+
+.form-container input::-moz-placeholder {
+    color: #999 !important;
+    opacity: 1;
+}
+
+.form-container input:-ms-input-placeholder {
+    color: #999 !important;
+}
+
+.form-container input::-ms-input-placeholder {
+    color: #999 !important;
+}
+
+/* জোর করে ওভাররাইড করার জন্য */
+.form-container input {
+    color: #000 !important;
+    background: white !important;
+}
+
+.form-container input:focus {
+    color: #000 !important;
+    background: white !important;
+}
+/* টেক্সটএরিয়া ফিল্ডের জন্য ব্ল্যাক টেক্সট ফিক্স */
+.form-container textarea {
+    color: #1a202c !important;  /* ডার্ক কালার */
+    background-color: #ffffff;
+    caret-color: #4F46E5;  /* কার্সারের রঙ */
+    font-family: inherit;
+    resize: vertical;
+    min-height: 100px;
+    padding: 12px 15px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* প্লেসহোল্ডার টেক্সটের রঙ (হালকা ধূসর) */
+.form-container textarea::placeholder {
+    color: #a0aec0 !important;
+    opacity: 1;
+}
+
+/* ফোকাস স্টেট */
+.form-container textarea:focus {
+    color: #1a202c !important;
+    background-color: #ffffff;
+    border-color: #ffd700;
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
+    outline: none;
+}
+
+/* ডিজেবল স্টেট (যদি প্রয়োজন হয়) */
+.form-container textarea:disabled {
+    background-color: #f3f4f6;
+    color: #4b5563 !important;
+}
 
 	</style>
 	<!-- Bangla font -->
@@ -1870,46 +1943,66 @@ button[type="submit"]:hover:not(:disabled) i {
 
         <h2>ML Bootcamp 2026</h2>
         <p>নিচের ফর্মটি পূরণ করুন এবং সাথে সাথে পেয়ে যান আপনার রোডম্যাপ</p>
-        
         <form action="https://formspree.io/f/mpqyjyye" method="POST">
-            <label>
-                <i class="fas fa-user"></i>
-                আপনার নাম:
-            </label>
-            <input type="text" name="name" placeholder="যেমন: Junayed Bin Karim" required>
+    <label>
+        <i class="fas fa-user"></i> আপনার নাম:
+    </label>
+    <input type="text" name="name" placeholder="যেমন: Junayed Bin Karim" required>
 
-            <label>
-                <i class="fas fa-envelope"></i>
-                ইমেইল এড্রেস:
-            </label>
-            <input type="email" name="_replyto" placeholder="example@mail.com" required>
+    <label>
+        <i class="fas fa-envelope"></i> ইমেইল এড্রেস:
+    </label>
+    <input type="email" name="_replyto" placeholder="example@mail.com" required>
 
-            <label>
-                <i class="fas fa-briefcase"></i>
-                বর্তমান অবস্থা:
-            </label>
-            <select name="status">
-                <option value="student"> স্টুডেন্ট (Student)</option>
-                <option value="job_seeker"> চাকরি খুঁজছি (Job Seeker)</option>
-                <option value="professional">প্রফেশনাল (Professional)</option>
-            </select>
+    <label>
+        <i class="fas fa-bullseye"></i> আপনি আমাদের থেকে কী শিখতে চান? (Behavioral Context)
+    </label>
+    <select name="interest_topic">
+        <option value="data_science">মেশিন লার্নিং (Machine Learning)</option>
+        <option value="web_dev">ওয়েব ডেভেলপমেন্ট (Web Development)</option>
+        <option value="automation">ডাটা সায়েন্স (Data Science)</option>
+    </select>
 
-            <label>
-                <i class="fas fa-code"></i>
-                পাইথন সম্পর্কে ধারণা:
-            </label>
-            <select name="python_skill">
-                <option value="beginner">একদম নতুন (Beginner)</option>
-                <option value="intermediate">মোটামুটি জানি (Intermediate)</option>
-                <option value="advanced">ভালো জানি (Advanced)</option>
-            </select>
+    <label>
+        <i class="fas fa-question-circle"></i> আপনার প্রধান সমস্যা বা চ্যালেঞ্জ কী?
+    </label>
+    <textarea name="buyer_challenge" placeholder="যেমন: গাইডলাইনের অভাব বা প্র্যাকটিস সোর্স পাচ্ছি না..."></textarea>
 
-            <label>
-                <i class="fas fa-phone"></i>
-                মোবাইল নম্বর:
-            </label>
-            <input type="tel" name="phone_number" placeholder="01XXXXXXXXX" pattern="[0-9]{11}" title="দয়া করে ১১ ডিজিটের মোবাইল নম্বর দিন" required>
+    <label>
+        <i class="fas fa-search"></i> আপনি আমাদের কথা প্রথম কোথায় শুনেছেন? (Lead Source)
+    </label>
+    <select name="lead_source">
+        <option value="facebook">ফেসবুক (Facebook)</option>
+        <option value="linkedin">লিঙ্কডইন (LinkedIn)</option>
+        <option value="google">গুগল সার্চ (Google Search)</option>
+        <option value="friend">বন্ধুর মাধ্যমে (Referral)</option>
+    </select>
 
+    <label>
+        <i class="fas fa-briefcase"></i> বর্তমান অবস্থা:
+    </label>
+    <select name="status">
+        <option value="student">স্টুডেন্ট (Student)</option>
+        <option value="job_seeker">চাকরি খুঁজছি (Job Seeker)</option>
+        <option value="professional">প্রফেশনাল (Professional)</option>
+    </select>
+
+    <label>
+        <i class="fas fa-code"></i> পাইথন সম্পর্কে ধারণা:
+    </label>
+    <select name="python_skill">
+        <option value="beginner">একদম নতুন (Beginner)</option>
+        <option value="intermediate">মোটামুটি জানি (Intermediate)</option>
+        <option value="advanced">ভালো জানি (Advanced)</option>
+    </select>
+
+    <label>
+        <i class="fas fa-phone"></i> মোবাইল নম্বর:
+    </label>
+    <input type="tel" name="phone_number" placeholder="01XXXXXXXXX" pattern="[0-9]{11}" title="দয়া করে ১১ ডিজিটের মোবাইল নম্বর দিন" required>
+
+    <button type="submit">সাবমিট করুন</button>
+</form>
             <!-- Hidden Fields -->
             <input type="hidden" name="Visitor_City" id="city">
             <input type="hidden" name="Visitor_Country" id="country">
