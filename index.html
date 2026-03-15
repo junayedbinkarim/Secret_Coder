@@ -101,6 +101,437 @@ html, body {
 }
 
 
+
+
+
+
+
+
+/* Form Container Styles - Mobile First Approach */
+.form-container {
+    max-width: 600px;
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hook Point Styles */
+.hook-point {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    animation: fadeInUp 0.8s ease;
+}
+
+.hook-point h1 {
+    font-size: clamp(24px, 6vw, 36px);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.hook-point h1 i {
+    font-size: clamp(20px, 5vw, 30px);
+    color: #ffd700;
+}
+
+.offer-badge {
+    background: #ff4757;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    display: inline-block;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: clamp(14px, 4vw, 16px);
+    animation: pulse 2s infinite;
+}
+
+.hook-point p {
+    font-size: clamp(14px, 4vw, 16px);
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.hook-point p i {
+    color: #4cd137;
+    margin-right: 8px;
+}
+
+.countdown-tag {
+    background: rgba(255, 215, 0, 0.2);
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: clamp(13px, 3.5vw, 15px);
+    border: 1px solid #ffd700;
+}
+
+/* Form Title */
+.form-container h2 {
+    font-size: clamp(20px, 5vw, 28px);
+    text-align: center;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.form-container > p {
+    text-align: center;
+    font-size: clamp(13px, 3.5vw, 15px);
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+/* Form Elements */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+label {
+    font-size: clamp(14px, 3.5vw, 16px);
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+label i {
+    color: #ffd700;
+    font-size: clamp(16px, 4vw, 18px);
+}
+
+input, select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    font-size: clamp(14px, 3.5vw, 16px);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #ffd700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+input::placeholder {
+    color: #999;
+    font-size: clamp(12px, 3vw, 14px);
+}
+
+/* Benefits Section */
+.benefits-list {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px 15px;
+    margin: 10px 0;
+    backdrop-filter: blur(5px);
+}
+
+.benefits-list h4 {
+    font-size: clamp(16px, 4vw, 18px);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffd700;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: clamp(12px, 3vw, 14px);
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.benefit-item i {
+    color: #4cd137;
+    font-size: clamp(14px, 3.5vw, 16px);
+}
+
+/* Submit Button */
+button[type="submit"] {
+    background: #ffd700;
+    color: #333;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 50px;
+    font-size: clamp(16px, 4vw, 18px);
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    width: 100%;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+    background: #ffed4a;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
+}
+
+button[type="submit"]:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+button[type="submit"] i {
+    transition: transform 0.3s ease;
+}
+
+button[type="submit"]:hover:not(:disabled) i {
+    transform: translateX(5px);
+}
+
+/* Trust Badges */
+.trust-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+    padding: 15px 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: clamp(12px, 3vw, 14px);
+    padding: 8px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+}
+
+.trust-item i {
+    color: #ffd700;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 10px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Small Mobile Devices (320px - 480px) */
+@media screen and (max-width: 480px) {
+    .form-container {
+        width: 95%;
+        padding: 15px 10px;
+        margin: 10px auto;
+    }
+
+    .hook-point {
+        padding: 15px 10px;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .benefit-item {
+        width: 100%;
+    }
+
+    .trust-badges {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .trust-item {
+        width: fit-content;
+    }
+
+    input, select {
+        padding: 10px 12px;
+    }
+
+    button[type="submit"] {
+        padding: 12px 20px;
+    }
+}
+
+/* Tablet Devices (481px - 768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .form-container {
+        width: 85%;
+        padding: 25px 20px;
+    }
+
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .trust-badges {
+        gap: 20px;
+    }
+}
+
+/* Laptop and Desktop (769px and above) */
+@media screen and (min-width: 769px) {
+    .form-container {
+        width: 80%;
+        padding: 40px 35px;
+        margin: 30px auto;
+    }
+
+    .hook-point {
+        padding: 25px;
+    }
+
+    .benefits-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .trust-badges {
+        justify-content: space-around;
+    }
+
+    input:hover, select:hover {
+        background: #ffffff;
+    }
+}
+
+/* Large Desktop (1200px and above) */
+@media screen and (min-width: 1200px) {
+    .form-container {
+        max-width: 700px;
+    }
+}
+
+/* Landscape Mode */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .form-container {
+        margin: 10px auto;
+        padding: 15px;
+    }
+
+    .hook-point {
+        margin-bottom: 15px;
+        padding: 10px;
+    }
+
+    .benefits-list {
+        padding: 10px;
+    }
+}
+
+/* High Resolution Devices */
+@media screen and (min-width: 1440px) {
+    .form-container {
+        max-width: 800px;
+        padding: 50px 40px;
+    }
+
+    .hook-point h1 {
+        font-size: 42px;
+    }
+
+    .benefit-item {
+        font-size: 16px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .form-container {
+        background: white;
+        color: black;
+        box-shadow: none;
+    }
+
+    .offer-badge, .countdown-tag, button {
+        display: none;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    input, select, button {
+        min-height: 44px;
+    }
+
+    .benefit-item, .trust-item {
+        padding: 12px 15px;
+    }
+
+    button[type="submit"] {
+        min-height: 50px;
+    }
+}
+
+
+
+
+
+
 	</style>
 	<!-- Bangla font -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -1341,6 +1772,193 @@ html, body {
     </div>
 </section>
 <!-- ===== ব্লগ সেকশন শেষ ===== -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="form-container">
+        <!-- Hook Point - Attention Grabber for Roadmap -->
+        <div class="hook-point">
+            <h1>
+                <i class="fas fa-map-signals"></i>
+                ফ্রি ML রোডম্যাপ 2026
+                <i class="fas fa-rocket"></i>
+            </h1>
+            <div class="offer-badge">
+                <i class="fas fa-gift"></i> 
+                সীমিত সময়ের অফার!
+            </div>
+            <p>
+                <i class="fas fa-check-circle"></i> 
+                ৩ মাসে ML ইঞ্জিনিয়ার হওয়ার সম্পূর্ণ গাইডলাইন
+                <br>
+                <i class="fas fa-check-circle"></i> 
+                প্র্যাকটিক্যাল রিসোর্স + প্রজেক্ট আইডিয়া
+            </p>
+            <div class="countdown-tag">
+                <i class="fas fa-hourglass-half"></i> 
+                আজই সংগ্রহ করুন আপনার রোডম্যাপ
+            </div>
+        </div>
+
+        <h2>ML Bootcamp 2026</h2>
+        <p>নিচের ফর্মটি পূরণ করুন এবং সাথে সাথে পেয়ে যান আপনার রোডম্যাপ</p>
+        
+        <form action="https://formspree.io/f/mpqyjyye" method="POST">
+            <label>
+                <i class="fas fa-user"></i>
+                আপনার নাম:
+            </label>
+            <input type="text" name="name" placeholder="যেমন: Junayed Bin Karim" required>
+
+            <label>
+                <i class="fas fa-envelope"></i>
+                ইমেইল এড্রেস:
+            </label>
+            <input type="email" name="_replyto" placeholder="example@mail.com" required>
+
+            <label>
+                <i class="fas fa-briefcase"></i>
+                বর্তমান অবস্থা:
+            </label>
+            <select name="status">
+                <option value="student"> স্টুডেন্ট (Student)</option>
+                <option value="job_seeker"> চাকরি খুঁজছি (Job Seeker)</option>
+                <option value="professional">প্রফেশনাল (Professional)</option>
+            </select>
+
+            <label>
+                <i class="fas fa-code"></i>
+                পাইথন সম্পর্কে ধারণা:
+            </label>
+            <select name="python_skill">
+                <option value="beginner">একদম নতুন (Beginner)</option>
+                <option value="intermediate">মোটামুটি জানি (Intermediate)</option>
+                <option value="advanced">ভালো জানি (Advanced)</option>
+            </select>
+
+            <label>
+                <i class="fas fa-phone"></i>
+                মোবাইল নম্বর:
+            </label>
+            <input type="tel" name="phone_number" placeholder="01XXXXXXXXX" pattern="[0-9]{11}" title="দয়া করে ১১ ডিজিটের মোবাইল নম্বর দিন" required>
+
+            <!-- Hidden Fields -->
+            <input type="hidden" name="Visitor_City" id="city">
+            <input type="hidden" name="Visitor_Country" id="country">
+            <input type="hidden" name="Visitor_IP" id="ip_address">
+            <input type="hidden" name="Roadmap_Requested" value="Yes">
+            <input type="hidden" name="Request_Date" id="request_date">
+
+            <!-- Benefits Section -->
+            <div class="benefits-list">
+                <h4>
+                    <i class="fas fa-star"></i>
+                    ফর্ম ফিলাপের পর যা পাবেন:
+                </h4>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <i class="fas fa-check"></i>
+                        সম্পূর্ণ ML রোডম্যাপ PDF
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check"></i>
+                        বোনাস: চিটশিট
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check"></i>
+                        প্র্যাকটিস প্রজেক্ট আইডিয়া
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check"></i>
+                        ফ্রি ওয়েবিনার অ্যাক্সেস
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" id="submitBtn">
+                <span>Get Roadmap & Free Demo Class</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </form>
+
+        <!-- Trust Badges -->
+        <div class="trust-badges">
+            <div class="trust-item">
+                <i class="fas fa-lock"></i>
+                তথ্য নিরাপদ
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-clock"></i>
+                তাৎক্ষণিক ডাউনলোড
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-users"></i>
+                ৫০০+ ইতিমধ্যে নিয়েছেন
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set request date
+        document.getElementById('request_date').value = new Date().toISOString();
+
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="loading-spinner"></span>লোকেশন লোড হচ্ছে...';
+
+        // IP and Location Detection
+        fetch('https://ipapi.co/json/')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('city').value = data.city || "Not Found";
+                document.getElementById('country').value = data.country_name || "Not Found";
+                document.getElementById('ip_address').value = data.ip || "Not Found";
+                
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>Get Roadmap & Free Demo Class</span><i class="fas fa-arrow-right"></i>';
+            })
+            .catch(error => {
+                console.log('Location detection failed:', error);
+                document.getElementById('city').value = "Error/Blocked";
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>Get Roadmap & Free Demo Class</span><i class="fas fa-arrow-right"></i>';
+            });
+
+        // Form submission handling with success message
+        document.querySelector('form').addEventListener('submit', function(e) {
+            if (!submitBtn.disabled) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<span class="loading-spinner"></span>পাঠানো হচ্ছে...';
+                
+                // You can add additional tracking here
+                console.log('Form submitted with roadmap request');
+            }
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
     <footer class="mt-32 relative overflow-hidden w-full" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);">
     <div class="absolute inset-0 overflow-hidden">
         <div class="absolute -top-40 -right-40 w-80 h-80 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
@@ -1979,40 +2597,39 @@ let isOpen = false;
 let unreadCount = 1;
 const botName = 'সিক্রেট কোডার বট';
 const userName = 'আপনি';
-
 // FAQ ডাটাবেস
 const faqDatabase = [
     {
         keywords: ['ফি', 'টাকা', 'মূল্য', 'দাম', 'কত', 'খরচ', 'payment', 'টাকার'],
-        answer: '🎯 **কোর্স ফি বিস্তারিত:**\n\n• **পার্সোনাল (১ জন):** ১৫,০০০ টাকা\n• **পার্টনার (২ জন):** ৭,৫০০ টাকা/জন\n• **গ্রুপ (৩ জন):** ৫,০০০ টাকা/জন\n\n✅ ইন্সটলমেন্ট সুবিধা আছে!\n\n👉 WhatsApp: 01893-255503'
+        answer: 'কোর্স ফি বিস্তারিত:\n\n• পার্সোনাল (১ জন): ১৫,০০০ টাকা\n• পার্টনার (২ জন): ৭,৫০০ টাকা/জন\n• গ্রুপ (৩ জন): ৫,০০০ টাকা/জন\n\nইন্সটলমেন্ট সুবিধা আছে!\n\nWhatsApp: 01893-255503'
     },
     {
         keywords: ['শুরু', 'ক্লাস', 'তারিখ', 'কবে', 'ব্যাচ', 'কখন', 'দিন'],
-        answer: '📅 **ক্লাসের সময়সূচি:**\n\n• ব্যাচ ০৪ চলছে\n• **প্রতি শুক্রবার** রাত ৮টা - ১০টা\n• মোট ১২টি লাইভ ক্লাস\n• ভর্তি চলছে, এখনই জয়েন করুন!\n\n🔗 ফর্ম: https://forms.gle/1e1hec2U2U5HJRdK9'
+        answer: 'ক্লাসের সময়সূচি:\n\n• ব্যাচ ০৪ চলছে\n• প্রতি শুক্রবার রাত ৮টা - ১০টা\n• মোট ১২টি লাইভ ক্লাস\n• ভর্তি চলছে, এখনই জয়েন করুন!\n\nফর্ম: https://forms.gle/1e1hec2U2U5HJRdK9'
     },
     {
         keywords: ['সিলেবাস', 'কি শিখব', 'পড়াশোনা', 'টপিক', 'মডিউল', 'সাবজেক্ট', 'বিষয়'],
-        answer: '📚 **৩ মাসের সিলেবাস:**\n\n**মডিউল ১ - Python (২ সপ্তাহ)**\n• Python বেসিক থেকে এডভান্সড\n• OOP, File I/O\n\n**মডিউল ২ - ডেটা সায়েন্স (৩ সপ্তাহ)**\n• Pandas, NumPy, Matplotlib\n• ডেটা ক্লিনিং ও ভিজুয়ালাইজেশন\n\n**মডিউল ৩ - মেশিন লার্নিং (৪ সপ্তাহ)**\n• Regression, Classification, Clustering\n• Scikit-learn, Model Evaluation\n\n**মডিউল ৪ - ক্যারিয়ার (৩ সপ্তাহ)**\n• ৫টি রিয়েল প্রজেক্ট\n• Resume, Interview, Job Support\n\n💡 বিস্তারিত জানতে কল করুন!'
+        answer: '৩ মাসের সিলেবাস:\n\nমডিউল ১ - Python (২ সপ্তাহ)\n• Python বেসিক থেকে এডভান্সড\n• OOP, File I/O\n\nমডিউল ২ - ডেটা সায়েন্স (৩ সপ্তাহ)\n• Pandas, NumPy, Matplotlib\n• ডেটা ক্লিনিং ও ভিজুয়ালাইজেশন\n\nমডিউল ৩ - মেশিন লার্নিং (৪ সপ্তাহ)\n• Regression, Classification, Clustering\n• Scikit-learn, Model Evaluation\n\nমডিউল ৪ - ক্যারিয়ার (৩ সপ্তাহ)\n• ৫টি রিয়েল প্রজেক্ট\n• Resume, Interview, Job Support\n\nবিস্তারিত জানতে কল করুন!'
     },
     {
         keywords: ['জব', 'চাকরি', 'প্লেসমেন্ট', 'ক্যারিয়ার', 'ইন্টারভিউ', 'রিমোট', 'বিদেশ'],
-        answer: '💼 **ক্যারিয়ার সাপোর্ট যা পাবেন:**\n\n✅ সিভি/রিজুমি অপটিমাইজেশন\n✅ মক ইন্টারভিউ\n✅ জব রেফারেল (আমাদের নেটওয়ার্কে)\n✅ রিমোট জব অ্যাপ্লিকেশন গাইড\n✅ থিসিস ও রিসার্চ সাপোর্ট\n\n📌 আমাদের ৭০%+ স্টুডেন্ট ৩ মাসের মধ্যে জব/ইন্টার্নশিপ পেয়েছেন!'
+        answer: 'ক্যারিয়ার সাপোর্ট যা পাবেন:\n\nসিভি বা রিজুমি অপটিমাইজেশন\nমক ইন্টারভিউ\nজব রেফারেল (আমাদের নেটওয়ার্কে)\nরিমোট জব অ্যাপ্লিকেশন গাইড\nথিসিস ও রিসার্চ সাপোর্ট\n\nআমাদের ৭০%+ স্টুডেন্ট ৩ মাসের মধ্যে জব বা ইন্টার্নশিপ পেয়েছেন!'
     },
     {
         keywords: ['মেন্টর', 'শিক্ষক', 'ইন্সট্রাক্টর', 'গাইড', 'জুনায়েদ', 'junayed'],
-        answer: '👨‍🏫 **আপনার মেন্টর: জুনায়েদ বীন করিম**\n\n• ML Specialist & Instructor\n• ৫+ বছর এক্সপেরিয়েন্স\n• ২০০+ স্টুডেন্ট ট্রেইন্ড\n• ৫০+ রিয়েল প্রজেক্ট\n• B.Sc in CSE (DIU)\n• Lead Instructor at Knowledge IT Institute\n\n🎯 সরাসরি মেন্টরের সাথে কথা বলতে WhatsApp করুন: 01893-255503'
+        answer: 'আপনার মেন্টর: জুনায়েদ বীন করিম\n\nML Specialist ও Instructor\n৫+ বছর অভিজ্ঞতা\n২০০+ স্টুডেন্ট ট্রেইনড\n৫০+ রিয়েল প্রজেক্ট\nB.Sc in CSE (DIU)\nLead Instructor at Knowledge IT Institute\n\nসরাসরি কথা বলতে WhatsApp করুন: 01893-255503'
     },
     {
         keywords: ['সার্টিফিকেট', 'সনদ', 'certificate', 'প্রমান', 'প্রমাণ'],
-        answer: '🎓 **অফিসিয়াল সার্টিফিকেট:**\n\n✅ ইন্ডাস্ট্রি রিকগনাইজড\n✅ লিংকডইন ভেরিফাইড\n✅ প্রজেক্ট পোর্টফোলিও ইনক্লুডেড\n✅ গ্লোবাল রিকগনিশন\n\nকোর্স সম্পন্ন করলেই পাবেন ভেরিফাইড সার্টিফিকেট!'
+        answer: 'অফিসিয়াল সার্টিফিকেট:\n\nইন্ডাস্ট্রি রিকগনাইজড\nলিংকডইন ভেরিফাইড\nপ্রজেক্ট পোর্টফোলিও ইনক্লুডেড\nগ্লোবাল রিকগনিশন\n\nকোর্স সম্পন্ন করলেই ভেরিফাইড সার্টিফিকেট পাবেন!'
     },
     {
         keywords: ['প্রজেক্ট', 'প্রকল্প', 'হাতে কলমে', 'প্রাকটিক্যাল', 'কাজ'],
-        answer: '🚀 **যে প্রজেক্টগুলো করবেন:**\n\n১. হাউস প্রাইস প্রেডিকশন\n২. কাস্টমার চার্ন প্রেডিকশন\n৩. স্প্যাম ইমেইল ডিটেকশন\n৪. কাস্টমার সেগমেন্টেশন\n৫. ফাইনাল ক্যাপস্টোন প্রজেক্ট (Kaggle-style)\n\n💡 প্রতিটি প্রজেক্ট পোর্টফোলিওর জন্য!'
+        answer: 'যে প্রজেক্টগুলো করবেন:\n\n১. হাউস প্রাইস প্রেডিকশন\n২. কাস্টমার চার্ন প্রেডিকশন\n৩. স্প্যাম ইমেইল ডিটেকশন\n৪. কাস্টমার সেগমেন্টেশন\n৫. ফাইনাল ক্যাপস্টোন প্রজেক্ট\n\nপ্রতিটি প্রজেক্ট পোর্টফোলিওর জন্য!'
     },
     {
         keywords: ['ডিসকাউন্ট', 'ছাড়', 'অফার', 'কম', 'কিস্তি', 'instalment'],
-        answer: '💰 **পেমেন্ট অপশন:**\n\n**ওয়ান টাইম:** ১৫,০০০ টাকা\n**২ কিস্তিতে:** ৮,০০০ × ২ = ১৬,০০০ টাকা\n\n🎁 **গ্রুপ ডিসকাউন্ট:**\n• ২ জন: ৭,৫০০ টাকা/জন\n• ৩ জন: ৫,০০০ টাকা/জন\n\n🔖 **এক্সক্লুসিভ অফার:** প্রথম ৫০ জন পাবেন ২৫% ছাড়!'
+        answer: 'পেমেন্ট অপশন:\n\nওয়ান টাইম: ১৫,০০০ টাকা\n২ কিস্তিতে: ৮,০০০ × ২ = ১৬,০০০ টাকা\n\nগ্রুপ ডিসকাউন্ট:\n২ জন: ৭,৫০০ টাকা/জন\n৩ জন: ৫,০০০ টাকা/জন\n\nএক্সক্লুসিভ অফার: প্রথম ৫০ জন পাবেন ২৫% ছাড়!'
     }
 ];
 
@@ -2231,7 +2848,7 @@ function getIconClass(icon) {
         '💼': 'fa-briefcase',
         '👨‍🏫': 'fa-chalkboard-teacher',
         '🎓': 'fa-graduation-cap',
-        '🚀': 'fa-rocket',
+        '': 'fa-rocket',
         '📞': 'fa-phone'
     };
     return icons[icon] || 'fa-question-circle';
@@ -2260,6 +2877,14 @@ document.addEventListener('click', function(event) {
         toggleChatbot();
     }
 });
+
+
+
+
+
+
+
+
 </script>
 	
 </body>
