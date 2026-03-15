@@ -529,7 +529,64 @@ button[type="submit"]:hover:not(:disabled) i {
 
 
 
+/* ফর্মের সিলেক্ট এলিমেন্টের টেক্সট কালার ফিক্স */
+.form-container select,
+.form-container select option {
+    color: #333333 !important; /* গা dark ় রঙ */
+    background-color: #ffffff;
+}
 
+/* সিলেক্ট বক্সের তীর কাস্টমাইজ করা (অপশনাল) */
+.form-container select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem;
+    padding-right: 2.5rem;
+}
+
+/* ভ্যালিডেশন/অ্যাক্টিভ স্টেট */
+.form-container select:focus {
+    border-color: #ffd700;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+}
+
+/* ড্রপডাউন অপশন হোভার স্টাইল */
+.form-container select option:hover,
+.form-container select option:focus,
+.form-container select option:active,
+.form-container select option:checked {
+    background: linear-gradient(0deg, #ffd700 0%, #ffd700 100%);
+    color: #000 !important;
+}
+
+/* ফায়ারফক্সের জন্য স্পেসিফিক ফিক্স */
+@-moz-document url-prefix() {
+    .form-container select option {
+        background-color: #ffffff;
+        color: #333 !important;
+    }
+    
+    .form-container select option:checked {
+        background-color: #ffd700;
+        color: #000 !important;
+    }
+}
+
+/* আইফোন/সাফারির জন্য ফিক্স */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .form-container select {
+        color: #333 !important;
+    }
+    
+    .form-container select:focus {
+        color: #333 !important;
+    }
+}
 
 
 	</style>
